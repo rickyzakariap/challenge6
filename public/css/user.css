@@ -1,0 +1,332 @@
+.font-opensans{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    
+    color: #FFFFFF;
+}
+
+.jumbo-1{
+    background-image: url(../assets/assets-CH3/main-bg.png);
+    background-size: cover;
+    height: 150vh;
+    background-repeat: no-repeat;
+    text-align: center;
+}
+
+.text-inside{
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    top: 20%;
+    
+}
+.text-inside h1{
+    font-weight: 700;
+}
+
+.jumbo-2{
+    background-image: url(../assets/assets-CH3/the-games-bg.jpg);
+    background-size: cover;
+    height: 150vh;
+    background-repeat: no-repeat;
+    
+}
+
+.text-inside-2{
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    top: 20%;
+    margin-left: 10%;
+}
+
+.img-inside{
+    height: 40%;
+    width: 50%;
+    float: right;
+    margin-right: 15%;
+}
+
+.switch-left{
+    left: 510px;
+    margin-left: 399px;
+    
+}
+
+.switch-right{
+    float: right;
+    position: relative;
+    margin-right: -632px;
+}
+
+.jumbo-3{
+    background-image: url(../assets/assets-CH3/features.jpg);
+    background-size: cover;
+    height: 150vh;
+    background-repeat: no-repeat;
+    
+}
+
+.text-inside-3{
+    color: white;
+}
+/* .text-inside-3{
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    top: 20%;
+    float: right;
+    right: 20%;
+    font-weight: 300; */
+
+
+.active-list{
+    list-style-image: url(../assets/assets-CH3/Ellipse-1.png);
+}
+
+.another-list{
+    list-style-image: url(../assets/assets-CH3/Ellipse.png);
+}
+
+.active-list{
+    font-family: Arial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    letter-spacing: 2px;
+    color: #FFB548;
+}
+
+.another-list{
+    font-family: Arial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    letter-spacing: 2px;
+    color: #FFB548;
+}
+.content-list{
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+
+    text-align: justify;
+
+    color: #FFFFFF;
+}
+
+.jumbo-4{
+    background-image: url(../assets/assets-CH3/requirements.png);
+    background-size: cover;
+    height: 150vh;
+    background-repeat: no-repeat;
+    
+}
+
+.text-inside-4{
+    font-family: Arial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 56px;
+    line-height: 64px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    color: #FFFFFF;
+
+    margin-left: 5%;
+}
+
+.content-4-1{
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 2px;
+}
+
+.content-4-2{
+    font-family: Arial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    /* identical to box height */
+
+    letter-spacing: 2px;
+
+    color: #FFB548;
+}
+
+.content-4-3{
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    /* or 122% */
+
+
+    color: #FFFFFF;
+}
+
+.jumbo-5{
+    background-image: url(../assets/assets-CH3/top-score-bg.png);
+    background-size: cover;
+    height: 150vh;
+    background-repeat: no-repeat;
+    
+}
+
+.text-inside-5{
+    margin-left: 5%;
+    color: white;
+    
+}
+
+.content-5-1{
+    font-family: Arial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 56px;
+    line-height: 64px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    
+    color: #FFFFFF;
+}
+
+.content-5-2{
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    /* or 122% */
+    
+    
+    color: #FFFFFF;
+}
+
+.content-5-3{
+    width: 300px;
+    margin-top: 5%;
+}
+
+.jumbo-6{
+    background-image: url(../assets/assets-CH3/the-games-bg2.png);
+    background-size: cover;
+    height: 150vh;
+    background-repeat: no-repeat;
+    
+}
+
+.text-inside-6{
+    margin-left: 5%;
+    color: white;
+    
+}
+.content-6-1{
+    margin-top: 20%;
+}
+
+.content-6-2{
+    font-family: Arial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    /* identical to box height */
+    
+    letter-spacing: 2px;
+    
+    color: #FFFFFF;
+    margin-top: 20%;
+}
+
+.content-6-3{
+    font-family: Arial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 65px;
+    line-height: 75px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    
+    color: #FFFFFF;
+}
+
+.content-6-4{
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    /* or 122% */
+    
+    
+    color: #FFFFFF;
+    
+}
+.content-6-5{
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 25px;
+    
+    color: #FFB548;
+}
+
+.content-6-6{
+    margin-top: 10%;
+}
+
+.test{
+    display: flex;
+}
+
+.links{
+    color: white;
+    margin-top: 1% !important;
+    margin-left: 10% !important;
+}
+
+.copyright{
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 19px;
+    
+    color: #FFFFFF;
+    
+    mix-blend-mode: normal;
+    opacity: 0.5;
+}
+
+.policy{
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: right;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    
+    color: #FFFFFF;
+    
+}
+
+.footman{
+    padding-top: 1%;
+    border-top: grey 1px solid;
+    margin-top: 8%;
+}

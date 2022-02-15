@@ -1,147 +1,150 @@
-// Menangkap pilihan dari komputer
-function getcompuChoice() {
-  const compu = Math.random();
-  if (compu < 1 / 3) return 'rock';
-  if (compu >= 1 / 3 && compu < 2 / 3) return 'paper';
-  return 'scissor';
+const rockBack = document.getElementById('rockBack');
+const paperBack = document.getElementById('paperBack');
+const scissorBack = document.getElementById('scissorBack');
+
+//show computer choice
+const rockBackCom = document.getElementById('rockBack-com');
+const paperBackCom = document.getElementById('paperBack-com');
+const scissorBackCom = document.getElementById('scissorBack-com');
+
+const versus = document.getElementById('versus') //to remove VS sign
+const resultBox = document.getElementById('result-box') //to show result sign
+
+var Enabled = true;
+
+//generate choices 
+function compChoice(){
+    const comp = Math.random();
+    if (comp < 0.34){
+        setTimeout(function(){
+            rockBackCom.style.background = "#C4C4C4";
+            rockBackCom.style.borderRadius = '30px';
+        }, 300)
+        return 'rock';
+    }else if (comp >= 0.34 && comp <=0.67){
+        setTimeout(function(){
+            paperBackCom.style.background = "#C4C4C4";
+            paperBackCom.style.borderRadius = '30px';
+        }, 300)
+        return 'paper';
+    } else{
+        setTimeout(function(){
+            scissorBackCom.style.background = "#C4C4C4";
+            scissorBackCom.style.borderRadius = '30px';
+        }, 300)
+        
+        return 'scissor';
+    }
 }
 
-// Rules permainan
-let result = null;
-function getResult(compu, player) {
-  if (player == compu) return (result = 'DRAW');
-  if (player == 'rock') return compu == 'scissor' ? (result = 'PLAYER 1 WIN') : (result = 'COM WIN');
-  if (player == 'paper') return compu == 'rock' ? (result = 'PLAYER 1 WIN') : (result = 'COM WIN');
-  if (player == 'scissor') return compu == 'paper' ? (result = 'PLAYER 1 WIN') : (result = 'COM WIN');
+//setup rules
+function gameResult(player, comp){
+    if(player == comp){
+        return draw();
+    }
+    else if(player == 'rock'){
+        return (comp == 'paper') ? lose() : win();
+    }
+    else if (player == 'paper'){
+        return (comp == 'scissor') ? lose() : win();
+    }
+    else if(player == 'scissor'){
+        return (comp == 'rock') ? lose() : win();
+    }
 }
 
-/* Game dimulai */
-/* DOM Selector */
-const versus = document.querySelector('.versus h1');
-const resultClass = document.querySelector('.versus div div');
-const textResult = document.querySelector('.versus h5');
-const compuBox = document.querySelectorAll('.greyBox.compuImage');
-const playerBox = document.querySelectorAll('.greyBox.playerImage');
-
-/* Beri delay untuk membuat komputer seolah berpikir dahulu */
-
-function wait() {
-  const start = new Date().getTime();
-  let i = 0;
-
-  setInterval(function () {
-    /* Jalankan fungsi dalam waktu 1s */
-    if (new Date().getTime() - start >= 1000) {
-      clearInterval;
-      return;
-    }
-
-    /* Komputer seolah-olah berpikir dengan bantuan greyBox */
-    compuBox[i++].style.backgroundColor = '#c4c4c4';
-    if (i == compuBox.length) i = 0;
-
-    /* Hilangkan kembali class result saat wait () */
-    resultClass.classList.remove('result');
-
-    /* Tampilkan kembali tulisan VS saat wait () */
-    versus.style.color = 'rgb(189,48,46)';
-  }, 50);
-
-  setTimeout(function () {
-    setInterval(function () {
-      if (new Date().getTime() - start >= 1200) {
-        clearInterval;
-        return;
-      }
-
-      /* Handling agar Menyamarkan greyBox dengan bgColor supaya tidak semuanya memiliki greyBox berwarna abu */
-      compuBox[i++].style.backgroundColor = '#9c835f';
-      if (i == compuBox.length) i = 0;
-    }, 50);
-  }, 50);
+//If player lose, win, and Draw
+function lose(){
+    console.log("COM WIN!") //consolo.log is for debugging to make sure code works
+    setTimeout(function(){
+        resultBox.style.display = 'block';
+        versus.style.display = 'none';
+        document.getElementById('result').innerHTML = 'COM WIN!';
+    },600)
 }
 
-/* Menangkap pilihan pemain */
-const player = document.querySelectorAll('.contentImage .player');
-player.forEach(function (choice) {
-  choice.addEventListener('click', function () {
-    /* Samarkan seluruh greyBox pada sisi player saat game dijalankan */
-    for (let i = 0; i < playerBox.length; i++) {
-      playerBox[i].style.backgroundColor = '#9c835f';
+function win(){
+    console.log("PLAYER 1 WIN")
+    setTimeout(function(){
+        resultBox.style.display = 'block';
+        versus.style.display = 'none';
+        document.getElementById('result').innerHTML = 'PLAYER 1 WIN!';
+    }, 600)
+}
+
+function draw(){
+    console.log("DRAW")
+    setTimeout(function(){
+        resultBox.style.display = 'block';
+        versus.style.display = 'none';
+        document.getElementById('result').innerHTML = 'DRAW';        
+    },600)
+}
+
+
+//if player choose rock
+const playerRock = document.getElementById('rock'); //take the input
+playerRock.addEventListener('click', function(){
+    //show player choice
+    if(Enabled == true){ //no overlap choice
+        const playerAction = playerRock.id;
+        const compAction = compChoice();
+        gameResult(playerAction, compAction); //get result 
+        
+        rockBack.style.background = "#C4C4C4"; //state that we choice Rock
+        rockBack.style.borderRadius = '30px';
+
+        console.log('comp :' + compAction); //this is for debugging in case of error
+        console.log("p :" + playerAction);
+        
+        Enabled = false;
     }
 
-    /* Eventlistener hanya dikerjakan apabila result masih dalam kondisi null */
-    if (result === null) {
-      /* Tangkap pilihan komputer */
-      const compuChoice = getcompuChoice();
+})
 
-      /* Tangkap pilihan pemain */
-      const playerChoice = choice.className.substr(7, 7);
+//if player choose paper
+const playerPaper = document.getElementById('paper'); 
+playerPaper.addEventListener('click', function(){
 
-      /* Jalankan Rules permainan untuk mendapatkan hasil */
-      result = getResult(compuChoice, playerChoice);
-
-      /* Berikan greyBox pada pilihan pemain */
-      if (playerChoice == 'rock') {
-        playerBox[0].style.backgroundColor = '#c4c4c4';
-      } else if (playerChoice == 'paper') {
-        playerBox[1].style.backgroundColor = '#c4c4c4';
-      } else {
-        playerBox[2].style.backgroundColor = '#c4c4c4';
-      }
-
-      /* Jalankan fungsi wait agar komputer terlihat berpikir dahulu */
-      wait();
-
-      /* Jalankan seluruh perintah dibawah setelah fungsi wait selesai dijalankan */
-      setTimeout(function () {
-        /* Samarkan tulisan VS dengan background saat hasil ditampilkan */
-        versus.style.color = '#9c835f';
-
-        /* Tampilkan class result */
-        resultClass.classList.add('result');
-
-        /* Tampilkan hasil dalam class result (kotak hijau) */
-        textResult.innerHTML = result;
-        if (result == 'DRAW') {
-          textResult.style.backgroundColor = '#225c0e';
-        } else {
-          textResult.style.backgroundColor = '#4c9654';
-        }
-
-        /* Berikan greyBox pada compu choice */
-        if (compuChoice == 'rock') {
-          compuBox[0].style.backgroundColor = '#c4c4c4';
-        } else if (compuChoice == 'paper') {
-          compuBox[1].style.backgroundColor = '#c4c4c4';
-        } else {
-          compuBox[2].style.backgroundColor = '#c4c4c4';
-        }
-      }, 1200);
-    } else {
-      alert('Click Refresh Button');
+    if(Enabled == true){
+        const compAction = compChoice();
+        const playerAction = playerPaper.id;
+        gameResult(playerAction, compAction);
+    
+        paperBack.style.background = "#C4C4C4";
+        paperBack.style.borderRadius = '30px';
+    
+        console.log('comp :' + compAction);
+        console.log("p :" + playerAction);
+        
+    
+        Enabled = false;
     }
-  });
+})
+
+//if player choose scissor
+const playerScissor = document.getElementById('scissor');
+playerScissor.addEventListener('click', function(){
+    if(Enabled == true){
+        const compAction = compChoice();
+        const playerAction = playerScissor.id;
+        gameResult(playerAction, compAction);
+    
+        scissorBack.style.background = "#C4C4C4";
+        scissorBack.style.borderRadius = '30px';
+    
+        console.log('comp :' + compAction);
+        console.log("p :" + playerAction);
+        
+    
+        Enabled = false;
+    }   
+})
+
+const refresh = document.getElementById('refresh'); //take refresh input
+refresh.addEventListener('click', function(){
+    if(confirm("Play Again??")){
+        location.reload();
+    }
 });
 
-/* Reset tampilan game dengan tombol refresh */
-const reset = document.querySelector('.refresh');
-reset.addEventListener('click', function () {
-  /* Hapus tulisan hasil dalam result */
-  textResult.innerHTML = '';
-
-  /* Hilangkan kembali class result */
-  resultClass.classList.remove('result');
-
-  /* Hilangkan kembali seluruh greyBox */
-  for (let i = 0; i < compuBox.length; i++) {
-    playerBox[i].style.backgroundColor = '#9c835f';
-    compuBox[i].style.backgroundColor = '#9c835f';
-  }
-
-  /* Tampilkan kembali tulisan VS */
-  versus.style.color = 'rgb(189,48,46)';
-
-  /* Reset kembali result menjadi null agar dapat melakukan permainan kembali */
-  result = null;
-});

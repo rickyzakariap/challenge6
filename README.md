@@ -1,2 +1,2 @@
-# challenge6
-BINAR Challenge 6
+# Binar Chapter 6 Challenge
+

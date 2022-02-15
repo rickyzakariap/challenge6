@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Update Form</title>
+  <!--Bootstrap-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.1/css/bootstrap.min.css">
+</head>
+
+<body>
+    
+  <div class="container">
+    <a href="/" class="btn btn-info btn-close"></a>
+    <form action="/user_update" method="post">
+
+      <div class="row mt-lg-4">
+        <div class="col-4">
+          <p>Enter current Email and password to continue!</p>
+          <input type="email" class="form-control" placeholder="Enter email" name="emailPrev">
+        </div>
+        <div class="col-2"></div>
+        <div class="col-4">
+          <p>Enter your updated information here!</p>
+          <input type="email" class="form-control" placeholder="Enter email" name="emailNext">
+        </div>
+      </div>
+
+      <div class="row mt-lg-4">
+        <div class="col-4">
+          <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="passwordPrev">
+        </div>
+        <div class="col-2"></div>
+        <div class="col-4">
+          <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="passwordNext">
+        </div>
+      </div>
+
+      <div class="row mt-lg-4">
+        <div class="col-4">
+          <a href="/user_delete">
+            Click here to delete your account
+          </a>
+        </div>
+        <div class="col-2"></div>
+        <div class="col-4">
+          <input type="text" class="form-control" placeholder="Enter your new username" name="username">
+        </div>
+      </div>
+
+      <div class="row mt-lg-4">
+        <div class="col-4"></div>
+        <div class="col-2"></div>
+        <div class="col-4">
+          <label for="comment">Biodata:</label>
+          <textarea class="form-control" rows="5" id="comment" name="description"></textarea> <br>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>
